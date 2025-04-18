@@ -1,4 +1,3 @@
-
 # ✅ Lesson 2: Serve and Update JSON Data with a POST Request
 
 In this lesson, I extended my raw Node.js server to handle POST requests. The goal was to accept incoming JSON, parse it, and add it to an existing `.json` file — mimicking how a backend might receive and store data. It sounds simple, but this turned out to be one of the most involved and satisfying lessons so far.
@@ -8,6 +7,7 @@ In this lesson, I extended my raw Node.js server to handle POST requests. The go
 ## 🛠️ What I Built
 
 A Node.js server that:
+
 - Listens on `localhost:3000`
 - Responds to `GET /` with plain text
 - Accepts `POST` requests at `/api/bbc/events`
@@ -91,11 +91,13 @@ This lesson turned into an epic learning adventure. Here are some of the rabbit 
 ## 🧪 curl Testing Commands
 
 ### GET
+
 ```bash
 curl http://localhost:3000/
 ```
 
 ### POST
+
 ```bash
 curl -X POST http://localhost:3000/api/bbc/events \
   -H "Content-Type: application/json" \
@@ -122,9 +124,12 @@ My `bbcObject.json` file now contains:
 ## 🧱 What’s Next
 
 In Lesson 3, I’ll either:
+
 - Add a frontend that submits data to this route, or
 - Build out full CRUD with PUT and DELETE methods
 
 ---
+
+## ABC
 
 **Always Be Kicking-ass. 🅰️🅱️🅲️**
