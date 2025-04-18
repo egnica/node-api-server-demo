@@ -1,7 +1,8 @@
 const http = require("http");
-
 const fs = require("fs");
-const bbcFilePath = "./bbcObject.json";
+const path = require("path");
+
+const bbcFilePath = path.join(__dirname, "bbcObject.json");
 
 const server = http.createServer((req, res) => {
   const { url, method } = req;
@@ -10,20 +11,13 @@ const server = http.createServer((req, res) => {
   if (url === "/" && method === "GET") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Welcome to the Home Page!");
-  } else if (url === "/api" && method === "GET") {
-    const data = {
-      message: "Here is some JSON data",
-      time: new Date().toISOString(),
-    };
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(data));
-  } else if (url === "/api/bbc/events" && method === "POST") {
+  } 
+  else if (url === "/api/bbc/events" && method === "POST") {
     console.log("🔥 POST route triggered");
 
     let body = "";
 
     req.on("data", (chunk) => {
-      console.log("📦 Received chunk:", chunk.toString());
       body += chunk;
     });
 
@@ -69,12 +63,13 @@ const server = http.createServer((req, res) => {
     req.on("error", (err) => {
       console.log("❌ Request stream error:", err.message);
     });
-  } else {
+  } 
+  else {
     res.writeHead(404, { "Content-Type": "text/plain" });
     res.end("404 Not Found");
   }
 });
 
 server.listen(3000, () => {
-  console.log("Server running at http://localhost:3000");
+  console.log("✅ Server running at http://localhost:3000");
 });
